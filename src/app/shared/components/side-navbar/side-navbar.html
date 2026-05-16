@@ -1,0 +1,89 @@
+<div class="cursor-glow"></div>
+<mat-sidenav-container class="sidenav-container" [class.minimized]="isMinimized()">
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav class="premium-sidenav" [class.minimized]="isMinimized()" mode="side"
+    [opened]="sidenavOpened()">
+    <!-- Sidebar Header -->
+    @if (!isMinimized()) {
+    <div class="sidenav-header">
+      <div class="logo-container">
+        <div class="logo" style="background: url('assets/logo.png') no-repeat center center; background-size: contain;">
+          
+        </div>
+      </div>
+      <h2 class="brand-name">
+        Snehi Limited
+      </h2>
+    </div>
+    }
+
+    <!-- Minimized Logo -->
+    @if (isMinimized()) {
+    <div class="sidenav-header-minimized">
+      <div class="logo-minimized">
+        S
+      </div>
+    </div>
+    }
+
+    <!-- Navigation -->
+    <nav class="nav-menu">
+      @for (item of navItems; track item.label) {
+      <a [routerLink]="item.route" routerLinkActive="active" class="nav-item" [class.minimized]="isMinimized()">
+        <mat-icon class="nav-icon">
+          {{ item.icon }}
+        </mat-icon>
+        @if (!isMinimized()) {
+        <span class="nav-label">
+          {{ item.label }}
+        </span>
+        }
+      </a>
+      }
+    </nav>
+
+    @if (!isMinimized()) {
+    <div class="divider"></div>
+    <div class="sidebar-footer">
+      <a class="premium-badge" routerLink="/login">
+        <mat-icon>
+          star
+        </mat-icon>
+        <span>{{ username() ? ('Welcome, ' + username()) : 'Login...?' }}</span>
+      </a>
+    </div>
+    }
+  </mat-sidenav>
+  <!-- Main Content -->
+  <mat-sidenav-content class="sidenav-content">
+    <!-- Top Navbar -->
+    <div class="top-navbar">
+      <div class="navbar-left">
+        <button mat-icon-button (click)="toggleMinimize()" class="minimize-btn" title="Minimize sidebar">
+          <mat-icon>
+            {{
+            isMinimized()
+            ? 'unfold_more'
+            : 'unfold_less'
+            }}
+          </mat-icon>
+        </button>
+        <h1 class="page-title">
+          Dashboard
+        </h1>
+      </div>
+      <div class="spacer"></div>
+      <div class="navbar-right">
+        <button mat-icon-button class="profile-btn">
+          <mat-icon>
+            account_circle
+          </mat-icon>
+        </button>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

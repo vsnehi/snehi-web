@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { SideNavbar } from './shared/components/side-navbar/side-navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [SideNavbar],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

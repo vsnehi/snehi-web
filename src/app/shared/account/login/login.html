@@ -1,0 +1,115 @@
+<section class="login-shell">
+    <div class="hero-glow"></div>
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="login-card animate-fade-up">
+        <div class="login-brand">
+            <div class="brand-mark"></div>
+            <div>
+                @if (mode === 'login') {
+                <h1>Welcome Back</h1>
+                <p>Sign in to access your premium audio-visual experience.</p>
+                }
+
+                @if (mode === 'signup') {
+                <h1>Create New Account</h1>
+                <p>Enter your details below to save your account in Redis cache.</p>
+                }
+            </div>
+        </div>
+
+        <form [formGroup]="mode === 'login' ? loginForm : signupForm"
+            (ngSubmit)="mode === 'login' ? onSubmit() : onSignup()" class="login-form">
+
+            @if (mode === 'signup') {
+            <label class="input-group">
+                <span>Full Name</span>
+                <input type="text" formControlName="name" placeholder="Your name" />
+                @if (signupName?.invalid && (signupName?.touched || submitted)) {
+                <p class="error-message">
+                    @if (signupName?.errors?.['required']) { <span>Name is required.</span> }
+                    @if (signupName?.errors?.['minlength']) { <span>Enter at least 2 characters.</span> }
+                </p>
+                }
+            </label>
+            }
+
+            <label class="input-group">
+                <span>Email</span>
+                <input type="email" formControlName="email" placeholder="name@domain.com" />
+                @if ((mode === 'login' ? email : signupEmail)?.invalid && ((mode === 'login' ? email :
+                signupEmail)?.touched || submitted)) {
+                <p class="error-message">
+                    @if ((mode === 'login' ? email : signupEmail)?.errors?.['required']) { <span>Email is
+                        required.</span> }
+                    @if ((mode === 'login' ? email : signupEmail)?.errors?.['email']) { <span>Enter a valid email
+                        address.</span> }
+                </p>
+                }
+            </label>
+
+            <label class="input-group">
+                <span>Password</span>
+                <input type="password" formControlName="password" placeholder="Enter your password" />
+                @if ((mode === 'login' ? password : signupPassword)?.invalid && ((mode === 'login' ? password :
+                signupPassword)?.touched || submitted)) {
+                <p class="error-message">
+                    @if ((mode === 'login' ? password : signupPassword)?.errors?.['required']) { <span>Password is
+                        required.</span> }
+                    @if ((mode === 'login' ? password : signupPassword)?.errors?.['minlength']) { <span>Minimum 6
+                        characters required.</span> }
+                </p>
+                }
+            </label>
+
+            @if (mode === 'signup') {
+            <label class="input-group">
+                <span>Confirm Password</span>
+                <input type="password" formControlName="confirmPassword" placeholder="Confirm your password" />
+                @if (signupConfirmPassword?.invalid && (signupConfirmPassword?.touched || submitted)) {
+                <p class="error-message">@if (signupConfirmPassword?.errors?.['required']) { <span>Confirm your
+                        password.</span> }</p>
+                }
+            </label>
+
+            @if (signupMismatch) { <p class="error-message">Passwords must match.</p> }
+            }
+
+            @if (mode === 'login') {
+            <div class="login-meta">
+                <label class="checkbox-inline">
+                    <input type="checkbox" formControlName="remember" />
+                    Remember me
+                </label>
+                <button type="button" class="ghost-link" aria-label="Forgot password">Forgot password?</button>
+            </div>
+            }
+
+            @if (mode === 'signup') {
+            <div class="login-meta">
+                <label class="checkbox-inline">
+                    <input type="checkbox" formControlName="remember" />
+                    Keep me signed in
+                </label>
+            </div>
+            }
+
+            <button type="submit" class="submit-btn"
+                [class.invalid]="(mode === 'login' ? loginForm.invalid : signupForm.invalid) && submitted">
+                <span class="btn-glow"></span>
+                <span>{{ mode === 'login' ? 'Sign In' : 'Create Account' }}</span>
+            </button>
+
+            @if (message) { <p class="success-message">{{ message }}</p> }
+            @if (errorMessage) { <p class="error-message">{{ errorMessage }}</p> }
+
+            <div class="login-action">
+                <span>{{ mode === 'login' ? 'New here?' : 'Already have an account?' }}</span>
+                <button type="button" class="new-account"
+                    (click)="mode === 'login' ? onCreateAccount() : onBackToLogin()">
+                    {{ mode === 'login' ? 'Create New Account' : 'Back to Sign In' }}
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
