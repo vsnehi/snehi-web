@@ -42,8 +42,19 @@
               "public/assets/custom/css/styles.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "public/assets/custom/js/jquery.nice-select.min.js",
+              "public/assets/custom/js/swiper-bundle.min.js",
+              "public/assets/custom/js/slick.min.js",
+              "public/assets/custom/js/countto.js",
+              "public/assets/custom/js/carousel.js",
+              "public/assets/custom/js/infinityslide.js",
+              "public/assets/custom/js/ScrollSmooth.js",
+              "public/assets/custom/js/gsap.min.js",
+              "public/assets/custom/js/ScrollTrigger.min.js",
+              "public/assets/custom/js/ScrollToPlugin.min.js",
+              "public/assets/custom/js/gsapAnimation.js",
+              "public/assets/custom/js/main.js"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
