@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { COMPANY_NAME } from '../../../core/constants/app.constants';
 
 @Component({
   selector: 'app-footer',
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })
-export class Footer {}
+export class AppFooter {
+
+  readonly title = COMPANY_NAME;
+  readonly currentYear = new Date().getFullYear();
+  
+}
