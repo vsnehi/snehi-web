@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { APP_TITLE } from '../../core/constants/app.constants';
 
 @Component({
   selector: 'blog',
@@ -8,4 +9,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './blog.html',
   styleUrls: ['./blog.scss'],
 })
-export class Blog {}
+export class Blog {
+  readonly companyName = APP_TITLE;
+}
