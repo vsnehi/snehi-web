@@ -8,15 +8,14 @@
             <span class="icon icon-long-arrow-alt-up-solid"></span>
         </span>
     </button>
- 
+
     <main id="wrapper">
 
         <!-- Header -->
         <header class="tf-header header2">
             <div class="header-inner">
                 <a routerLink="./" class="logo-site">
-                    <img src="logo.png" alt="Logo"> SNEHI
-                </a>
+                    <img src="logo.png" alt="Logo"> </a>
                 <div class="box-navigation">
 
                     <ul class="nav-menu-main">
@@ -31,11 +30,19 @@
 
                             <ul class="sub-menu">
                                 @for (child of item.children; track child.label) {
+                                @if (child.external) {
                                 <li class="sub-menu-item">
-                                    <a [routerLink]="child.route" routerLinkActive="active" class="item-link link1">
+                                    <a [href]="child.route" target="_blank" rel="noopener noreferrer">
                                         {{ child.label }}
                                     </a>
                                 </li>
+                                } @else {
+                                <li class="sub-menu-item">
+                                    <a [routerLink]="child.route">
+                                        {{ child.label }}
+                                    </a>
+                                </li>
+                                }
                                 }
                             </ul>
 
@@ -61,7 +68,7 @@
             </div>
         </header>
         <!-- /Header -->
-        
+
         <router-outlet></router-outlet>
 
     </main>
