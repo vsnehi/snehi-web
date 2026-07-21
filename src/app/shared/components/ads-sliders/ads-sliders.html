@@ -1,27 +1,39 @@
-<div class="mt-8 mb-16">
-    <p-carousel class="max-w-xl mx-auto" align="center">
-        <p-carousel-content class="h-60">
-            @for (item of items; track item) {
-            <p-carousel-item>
-                <div
-                    class="h-full text-5xl font-semibold bg-surface-50 dark:bg-surface-950 text-surface-950 dark:text-surface-0 flex flex-col items-center justify-center gap-6 rounded-xl border border-surface">
-                    <span>{{ item }}</span>
-                </div>
-            </p-carousel-item>
-            }
-        </p-carousel-content>
-        <div class="flex mt-4 gap-4">
-            <p-carousel-indicators></p-carousel-indicators>
-            <div class="flex items-center justify-end gap-2 flex-1">
-                <button pCarouselPrev
-                    class="w-9 h-9 flex items-center justify-center rounded-full border border-surface bg-surface-0 dark:bg-surface-800 text-surface-500 dark:text-surface-400 hover:opacity-75 cursor-pointer transition-opacity">
-                    <svg data-p-icon="chevron-left"></svg>
-                </button>
-                <button pCarouselNext
-                    class="w-9 h-9 flex items-center justify-center rounded-full border border-surface bg-surface-0 dark:bg-surface-800 text-surface-500 dark:text-surface-400 hover:opacity-75 cursor-pointer transition-opacity">
-                    <svg data-p-icon="chevron-right"></svg>
-                </button>
+<div id="carouselExampleDark" class="carousel slide carousel-fade">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+            <img src="assets/ads-banner/cude-coming-soon.png" class="d-block w-100 " alt="...">
+            <div class="carousel-caption d-none d-md-block text-light">
+                <h5>CUDE.IN</h5>
+                <p>Coming Soon</p>
             </div>
         </div>
-    </p-carousel>
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="assets/ads-banner/vikram-snehi-profile.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Vikram Snehi - Profile</h5>
+                <p>You can visit through Company >> Blog >> Vikram Snehi</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="assets/ads-banner/music-coming-soon.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Music Snehi</h5>
+                <p>Play and Watch - Coming Soon</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
