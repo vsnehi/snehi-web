@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { APP_TITLE } from '../../core/constants/app.constants';
+import { APP_TITLE } from '../../states/constants/app.constants';
 
 @Component({
   selector: 'blog',

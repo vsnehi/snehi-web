@@ -10,7 +10,7 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () =>
-      import('./shared/account/login/login')
+      import('./auth/login')
         .then(c => c.Login)
   },
   {

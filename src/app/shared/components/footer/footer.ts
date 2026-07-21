@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { COMPANY_NAME } from '../../../core/constants/app.constants';
+import { COMPANY_NAME } from '../../../states/constants/app.constants';
 
 @Component({
   selector: 'app-footer',

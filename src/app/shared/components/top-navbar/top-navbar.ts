@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HEADER_MENU } from '../../../core/constants/navigation.constants';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
+import { HEADER_MENU } from '../../../states/constants/navigation.constants';
 
 @Component({
   selector: 'top-navbar',
