@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -7,6 +7,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./login.scss'],
 })
 export class Login {
@@ -36,7 +37,7 @@ export class Login {
       confirmPassword: ['', [Validators.required]],
       remember: [false],
     },
-    { validators: this.passwordMatch }
+    { validators: this.passwordMatch },
   );
 
   get email() {
@@ -145,4 +146,3 @@ export class Login {
     }
   }
 }
-

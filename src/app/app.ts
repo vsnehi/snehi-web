@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TopNavbar } from './shared/components/top-navbar/top-navbar';
 import { AppFooter } from './shared/components/footer/footer';
 import { COMPANY_NAME } from './states/constants/app.constants';
@@ -6,10 +6,9 @@ import { COMPANY_NAME } from './states/constants/app.constants';
   selector: 'app-root',
   imports: [TopNavbar, AppFooter],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './app.scss',
 })
 export class App {
-
   protected readonly title = signal(COMPANY_NAME);
-  
 }

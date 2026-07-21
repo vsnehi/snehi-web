@@ -1,16 +1,13 @@
-import{
-Component
-}from'@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
-import{
-CommonModule
-}from'@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
-selector:'app-home',
-standalone:true,
-imports:[CommonModule],
-templateUrl:'./home.html',
-styleUrls:['./home.scss'],
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './home.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrls: ['./home.scss'],
 })
-export class Home{}
+export class Home {}
