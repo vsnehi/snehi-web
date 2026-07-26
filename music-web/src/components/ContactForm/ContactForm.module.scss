@@ -1,0 +1,35 @@
+.form {
+  display: grid;
+  gap: 14px;
+  background: #0b0b0f;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+input, textarea {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.actions { display:flex; justify-content:flex-end; }
+
+.submitButton {
+  background: linear-gradient(90deg, #ff8c1a, #8b5cf6);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) { .row { grid-template-columns: 1fr; } }

@@ -1,0 +1,48 @@
+.card {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #0b0b0f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  align-items: center;
+}
+
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.name {
+  margin: 0;
+}
+
+.role {
+  margin: 0;
+  color: rgba(255,255,255,0.72);
+  font-size: 0.95rem;
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+}
+
+.social a {
+  color: rgba(255,255,255,0.82);
+  display: inline-flex;
+}
+
+@media (max-width: 720px) {
+  .card { grid-template-columns: 64px 1fr; }
+  .avatar { width: 64px; height: 64px; }
+}
