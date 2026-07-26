@@ -1,0 +1,135 @@
+.section {
+  background: #050505;
+  padding: clamp(72px, 8vw, 120px) 0;
+}
+
+.container {
+  width: 100%;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 420px;
+}
+
+.subtitle {
+  margin: 0;
+  color: #ff8c1a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3rem, 4.3vw, 4.4rem);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.titleBreak {
+  display: block;
+}
+
+.highlight {
+  color: #ff8c1a;
+}
+
+.divider {
+  width: 56px;
+  height: 4px;
+  border-radius: 999px;
+  background: #ff8c1a;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  border: 1px solid #ff8c1a;
+  background: transparent;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.ctaButton:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+.ctaIcon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  color: #ff8c1a;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.sliderWrapper {
+  width: 100%;
+}
+
+:global(.swiper) {
+  overflow: visible;
+}
+
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+:global(.swiper-button-next::after),
+:global(.swiper-button-prev::after) {
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 54px 0;
+  }
+
+  .copy {
+    gap: 18px;
+  }
+
+  .title {
+    font-size: clamp(2.3rem, 8vw, 3.2rem);
+  }
+
+  .divider {
+    width: 56px;
+    height: 3px;
+  }
+}

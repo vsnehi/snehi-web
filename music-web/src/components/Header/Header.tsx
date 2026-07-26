@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Container from "../common/Container";
 import { NAVIGATION } from "../../constants/navigation";
 import styles from "./Header.module.scss";
@@ -10,30 +10,33 @@ const Header = () => {
         <header className={styles.header}>
             <Container>
                 <div className={styles.wrapper}>
-
-                    {/* Logo */}
                     <Link to="/" className={styles.logo}>
                         <img src={Logo} alt="Snehi Music" />
                     </Link>
 
-                    {/* Navigation */}
-                    <nav className={styles.navigation}>
+                    <nav className={styles.navigation} aria-label="Primary navigation">
                         <ul className={styles.navList}>
                             {NAVIGATION.map((item) => (
                                 <li key={item.path}>
-                                    <Link to={item.path}>{item.label}</Link>
+                                    <NavLink
+                                        to={item.path}
+                                        className={({ isActive }) =>
+                                            `${styles.navLink} ${isActive ? styles.active : ""}`.trim()
+                                        }
+                                    >
+                                        {item.label}
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
                     </nav>
 
-                    {/* CTA */}
                     <div className={styles.actions}>
-                        <button className={styles.listenButton}>
+                        <Link to="/music" className={styles.listenButton}>
+                            <span className={styles.buttonIcon} aria-hidden="true" />
                             Listen Now
-                        </button>
+                        </Link>
                     </div>
-
                 </div>
             </Container>
         </header>
