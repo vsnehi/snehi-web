@@ -1,9 +1,15 @@
+import Container from '../common/Container';
 import styles from './Hero.module.scss';
 
 const Hero = () => {
   return (
     <section className={styles.hero}>
-      <h1>Snehi Music</h1>
+      <Container>
+        Hello, I am Hero
+        {/* <HeroContent />
+        <HeroImage />
+        <HeroStats /> */}
+      </Container>
     </section>
   );
 };
