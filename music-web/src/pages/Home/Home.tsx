@@ -1,14 +1,14 @@
 
-import Header from "../../components/Header";
-import Hero from "../../components/Hero";
-import FeaturedReleases from "../../components/FeaturedReleases";
+import Hero from '../../components/Hero';
+import FeaturedReleases from '../../components/FeaturedReleases';
+import CTASection from '../../components/CTASection';
 
 const Home = () => {
   return (
     <>
-      <Header />
       <Hero />
       <FeaturedReleases />
+      <CTASection />
     </>
   );
 };
