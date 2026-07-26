@@ -5,11 +5,12 @@ import Container from '../../components/common/Container';
 import styles from './AlbumDetails.module.scss';
 import { albums } from '../../constants/Musics';
 import { useAudio } from '../../context/AudioPlayerContext';
+import { useEffect } from 'react';
 
 const AlbumDetails: React.FC = () => {
   const { id } = useParams();
   const album = albums.find((a) => a.id === id);
-  const { toggle, current, isPlaying } = useAudio();
+  const { current, isPlaying, playAlbum, playFromQueueIndex } = useAudio();
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -31,8 +32,36 @@ const AlbumDetails: React.FC = () => {
 
   const handlePlayTrack = (track?: { id: string; src?: string; title?: string }) => {
     if (!track) return;
-    toggle({ id: `${album.id}-${track.id}`, src: track.src ?? album.audio ?? '', title: track.title, artist: album.artist });
+    // start album playback from selected track
+    const tracks = album.tracks && album.tracks.length ? album.tracks : [{ id: 't1', title: album.title, duration: album.duration, src: album.audio }];
+    const mapped = tracks.map((t) => ({ id: `${album.id}-${t.id}`, src: t.src ?? album.audio ?? '', title: t.title, artist: album.artist }));
+    const idx = mapped.findIndex((m) => m.id === `${album.id}-${track.id}`);
+    playAlbum(mapped);
+    if (idx >= 0) playFromQueueIndex(idx);
   };
+
+  // Preload or hint browser to fetch audio resources when album page mounts
+  useEffect(() => {
+    const links: HTMLLinkElement[] = [];
+    const tracks = album.tracks && album.tracks.length ? album.tracks : [{ id: 't1', title: album.title, duration: album.duration, src: album.audio }];
+    tracks.forEach((t) => {
+      if (!t.src) return;
+      try {
+        const l = document.createElement('link');
+        l.rel = 'preload';
+        l.as = 'audio';
+        l.href = t.src;
+        document.head.appendChild(l);
+        links.push(l);
+      } catch (e) {
+        // ignore
+      }
+    });
+
+    return () => {
+      links.forEach((l) => l.remove());
+    };
+  }, [album.id]);
 
   return (
     <main className={styles.page}>
@@ -51,8 +80,14 @@ const AlbumDetails: React.FC = () => {
             <p className={styles.meta}>Year: {album.year} • Genre: {album.genre}</p>
             <div className={styles.actions}>
               {album.audio && (
-                <button onClick={() => toggle({ id: album.id, src: album.audio!, title: album.title, artist: album.artist })}>
-                  {current?.id === album.id && isPlaying ? 'Pause' : 'Play'}
+                <button
+                  onClick={() => {
+                    const tracks = album.tracks && album.tracks.length ? album.tracks : [{ id: 't1', title: album.title, duration: album.duration, src: album.audio }];
+                    const mapped = tracks.map((t) => ({ id: `${album.id}-${t.id}`, src: t.src ?? album.audio ?? '', title: t.title, artist: album.artist }));
+                    playAlbum(mapped);
+                  }}
+                >
+                  {isPlaying && current?.id?.startsWith(`${album.id}-`) ? 'Pause' : 'Play Album'}
                 </button>
               )}
             </div>

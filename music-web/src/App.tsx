@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { AudioProvider } from './context/AudioPlayerContext';
 import MusicVisualizer from './components/MusicVisualizer/MusicVisualizer';
+import PlayerQueue from './components/PlayerQueue/PlayerQueue';
 import Home from './pages/Home';
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy';
 import TermsAndConditions from './pages/Legal/TermsAndConditions';
@@ -26,6 +27,7 @@ function App() {
         <ScrollToTop />
         <Header />
         <MusicVisualizer />
+        <PlayerQueue />
 
         <Suspense fallback={<div style={{padding:40, color:'#fff'}}>Loading...</div>}>
           <Routes>

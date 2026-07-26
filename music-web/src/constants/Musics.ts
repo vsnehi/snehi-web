@@ -23,6 +23,11 @@ export type Artist = {
     genres?: string[];
 };
 
+import vivahUrl from '../assets/music-list/Vivah.mp3?url';
+import vedikUrl from '../assets/music-list/vedik.mp3?url';
+import shivaUrl from '../assets/music-list/shiva.mp3?url';
+import garibUrl from '../assets/music-list/garib.mp3?url';
+
 export const albums: Album[] = [
     {
         id: 'alb-001',
@@ -32,12 +37,12 @@ export const albums: Album[] = [
         duration: '7 MIN',
         year: 2026,
         genre: 'Ambient',
-        audio: '/src/assets/music-list/Vivah.mp3',
+        audio: vivahUrl,
         tracks: [
-            { id: 't-vivah', title: 'Vivah', duration: '04:12', src: '/src/assets/music-list/Vivah.mp3' },
-            { id: 't-vedik', title: 'Vedik', duration: '03:58', src: '/src/assets/music-list/vedik.mp3' },
-            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: '/src/assets/music-list/shiva.mp3' },
-            { id: 't-garib', title: 'Garib', duration: '04:27', src: '/src/assets/music-list/garib.mp3' },
+            { id: 't-vivah', title: 'Vivah', duration: '04:12', src: vivahUrl },
+            { id: 't-vedik', title: 'Vedik', duration: '03:58', src: vedikUrl },
+            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: shivaUrl },
+            { id: 't-garib', title: 'Garib', duration: '04:27', src: garibUrl },
         ],
     },
     {
@@ -48,10 +53,10 @@ export const albums: Album[] = [
         duration: '37:05',
         year: 2024,
         genre: 'Indie Pop',
-        audio: '/src/assets/music-list/Vivah.mp3',
+        audio: vivahUrl,
         tracks: [
-            { id: 't-vedik', title: 'Vedik', duration: '03:58', src: '/src/assets/music-list/vedik.mp3' },
-            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: '/src/assets/music-list/shiva.mp3' },
+            { id: 't-vedik', title: 'Vedik', duration: '03:58', src: vedikUrl },
+            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: shivaUrl },
         ],
     },
     {
@@ -62,11 +67,11 @@ export const albums: Album[] = [
         duration: '49:12',
         year: 2023,
         genre: 'Electronica',
-        audio: '/src/assets/music-list/Vivah.mp3',
+        audio: vivahUrl,
         tracks: [
-            { id: 't-vivah', title: 'Vivah', duration: '04:12', src: '/src/assets/music-list/Vivah.mp3' },
-            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: '/src/assets/music-list/shiva.mp3' },
-            { id: 't-garib', title: 'Garib', duration: '04:27', src: '/src/assets/music-list/garib.mp3' },
+            { id: 't-vivah', title: 'Vivah', duration: '04:12', src: vivahUrl },
+            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: shivaUrl },
+            { id: 't-garib', title: 'Garib', duration: '04:27', src: garibUrl },
         ],
     },
     {
@@ -77,11 +82,11 @@ export const albums: Album[] = [
         duration: '33:44',
         year: 2022,
         genre: 'Chill',
-        audio: '/src/assets/music-list/Vivah.mp3',
+        audio: vivahUrl,
         tracks: [
-            { id: 't-vivah', title: 'Vivah', duration: '04:12', src: '/src/assets/music-list/Vivah.mp3' },
-            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: '/src/assets/music-list/shiva.mp3' },
-            { id: 't-garib', title: 'Garib', duration: '04:27', src: '/src/assets/music-list/garib.mp3' },
+            { id: 't-vivah', title: 'Vivah', duration: '04:12', src: vivahUrl },
+            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: shivaUrl },
+            { id: 't-garib', title: 'Garib', duration: '04:27', src: garibUrl },
         ],
     },
     {
@@ -92,11 +97,11 @@ export const albums: Album[] = [
         duration: '45:01',
         year: 2021,
         genre: 'World',
-        audio: '/src/assets/music-list/Vivah.mp3',
+        audio: vivahUrl,
         tracks: [
-            { id: 't-vivah', title: 'Vivah', duration: '04:12', src: '/src/assets/music-list/Vivah.mp3' },
-            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: '/src/assets/music-list/shiva.mp3' },
-            { id: 't-garib', title: 'Garib', duration: '04:27', src: '/src/assets/music-list/garib.mp3' },
+            { id: 't-vivah', title: 'Vivah', duration: '04:12', src: vivahUrl },
+            { id: 't-shiva', title: 'Shiva', duration: '05:04', src: shivaUrl },
+            { id: 't-garib', title: 'Garib', duration: '04:27', src: garibUrl },
         ],
     },
     {

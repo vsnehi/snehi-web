@@ -3,6 +3,11 @@
   padding: clamp(72px, 8vw, 120px) 0;
 }
 
+/* Ensure section appears above any global visual overlays on small screens */
+@media (max-width: 620px) {
+  .section { position: relative; z-index: 60; }
+}
+
 .container {
   width: 100%;
 }
@@ -132,4 +137,37 @@
     width: 56px;
     height: 3px;
   }
+}
+
+@media (max-width: 620px) {
+  .sliderWrapper {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  :global(.swiper) {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  :global(.swiper-wrapper) {
+    width: 100%;
+  }
+
+  :global(.swiper-slide) {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .sliderWrapper > * {
+    min-width: auto;
+    width: 100%;
+    display: block;
+    margin-right: 0;
+  }
+}
+
+/* Hide FeaturedReleases entirely on the smallest phones to avoid any remaining slider overflow */
+@media (max-width: 420px) {
+  .section { display: none; }
 }

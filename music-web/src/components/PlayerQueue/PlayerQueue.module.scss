@@ -1,0 +1,29 @@
+.queue {
+  background: var(--bg-elev, #fff);
+  border-radius: 8px;
+  padding: 12px;
+  max-width: 360px;
+}
+.heading {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 6px;
+  border-radius: 6px;
+}
+.item + .item { margin-top: 6px; }
+.meta { flex: 1; margin-right: 8px; }
+.title { font-size: 0.95rem; }
+.artist { font-size: 0.8rem; color: #666; }
+.controls { display:flex; gap:6px; }
+.btn { background: transparent; border: 1px solid #ddd; padding:4px 6px; border-radius:4px; cursor:pointer; }
+.current { background: rgba(0,0,0,0.04); }

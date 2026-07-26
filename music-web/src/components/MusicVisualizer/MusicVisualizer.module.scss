@@ -28,10 +28,15 @@
   margin-top: -110px;
   border-radius: 50%;
   background: conic-gradient(from 90deg, rgba(255,140,26,0.14), rgba(139,92,246,0.12), rgba(255,140,26,0.08));
-  filter: blur(28px);
+  filter: blur(4px);
   transform: scale(0.9);
   animation: spin 4000ms linear infinite, beat 900ms ease-in-out infinite;
   opacity: 0.95;
+}
+
+/* Hide heavy visualizer effects on small screens to avoid full-screen covers */
+@media (max-width: 620px) {
+  .visualizer { display: none !important; }
 }
 
 @keyframes pulse {

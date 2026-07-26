@@ -199,8 +199,8 @@ h1 {
 .stats {
     margin: 0 auto;
     margin-top: 32px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -208,6 +208,14 @@ h1 {
     border-radius: 28px;
     padding: 22px 24px;
     color: #f7f2eb;
+}
+
+@media (max-width: 920px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .stats { grid-template-columns: 1fr; }
 }
 
 .stat {
@@ -282,4 +290,18 @@ h1 {
         margin-bottom: 24px;
         font-size: 0.95rem;
     }
+
+    /* Reorder visual elements for mobile: text, buttons, image, stats */
+    .inner { grid-auto-rows: auto; }
+    .visual { order: 3; align-self: center; justify-self: center; }
+    .content { order: 1; }
+    .stats { order: 2; width: 100%; }
+}
+
+/* Further reduce decorative overlays on very small screens to avoid full-screen darkening */
+@media (max-width: 420px) {
+    .backgroundOverlay {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.56) 36%, rgba(0, 0, 0, 0.18) 68%, rgba(0, 0, 0, 0.04) 100%);
+    }
+    .smoke, .orangeGlow, .particle, .particleSecondary { display: none; }
 }
