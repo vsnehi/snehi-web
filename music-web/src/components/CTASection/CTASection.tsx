@@ -15,7 +15,7 @@ const CTASection = () => {
             We design intelligent software, AI agents, enterprise applications, and scalable cloud solutions.
           </p>
           <a className={styles.button} href="#" aria-label="Get Started with Snehi Technologies">
-            Get Started
+            Enjoy 
           </a>
         </div>
       </Container>

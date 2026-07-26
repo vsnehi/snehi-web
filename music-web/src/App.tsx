@@ -1,6 +1,6 @@
 
 import './App.css';
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy';
 import TermsAndConditions from './pages/Legal/TermsAndConditions';
 import CookiePolicy from './pages/Legal/CookiePolicy';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import NotFound from './pages/NotFound/NotFound';
 
 const Music = lazy(() => import('./pages/Music'));
 const Artists = lazy(() => import('./pages/Artists'));
@@ -21,6 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <AudioProvider>
+        <ScrollToTop />
         <Header />
         <MusicVisualizer />
 
@@ -32,6 +35,8 @@ function App() {
             <Route path="/artists" element={<Artists />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+
+            <Route path="*" element={<NotFound />} />
 
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

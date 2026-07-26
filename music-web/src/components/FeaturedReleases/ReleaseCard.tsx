@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import styles from './ReleaseCard.module.scss';
+import type { FC } from 'react';
+import { useAudio } from '../../context/AudioPlayerContext';
 
 interface ReleaseCardProps {
   release: {
@@ -7,10 +9,20 @@ interface ReleaseCardProps {
     title: string;
     artist: string;
     image: string;
+    audio?: string;
   };
 }
 
-const ReleaseCard = ({ release }: ReleaseCardProps) => {
+const ReleaseCard: FC<ReleaseCardProps> = ({ release }) => {
+  const { toggle, current, isPlaying } = useAudio();
+
+  const isCurrent = current?.id === `featured-${release.id}` && isPlaying;
+
+  const handlePlay = () => {
+    if (!release.audio) return;
+    toggle({ id: `featured-${release.id}`, src: release.audio, title: release.title, artist: release.artist });
+  };
+
   return (
     <motion.article
       className={styles.card}
@@ -20,8 +32,8 @@ const ReleaseCard = ({ release }: ReleaseCardProps) => {
       <div className={styles.imageWrap}>
         <img src={release.image} alt={release.title} />
         <div className={styles.gradientOverlay} />
-        <button className={styles.playButton} type="button" aria-label={`Play ${release.title}`}>
-          <span className={styles.playIcon} />
+        <button className={styles.playButton} type="button" aria-label={`Play ${release.title}`} onClick={handlePlay}>
+          <span className={styles.playIcon}>{isCurrent ? '⏸' : '▶'}</span>
         </button>
       </div>
 

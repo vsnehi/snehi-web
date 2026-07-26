@@ -1,4 +1,4 @@
-import { Navigation } from 'swiper/modules';
+import { Navigation, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -29,8 +29,9 @@ const FeaturedReleases = () => {
 
           <div className={styles.sliderWrapper}>
             <Swiper
-              modules={[Navigation]}
+              modules={[Navigation, Mousewheel]}
               navigation
+              mousewheel={{ forceToAxis: true }}
               spaceBetween={24}
               slidesPerView={4}
               breakpoints={{

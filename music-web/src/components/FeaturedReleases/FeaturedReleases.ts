@@ -1,6 +1,5 @@
 import ShivTandavImage from '../../assets/albums/mahadev.png';
 import HanumanChalisaImage from '../../assets/images/releases/hanuman-chalisa.webp';
-import TeraNaamImage from '../../assets/images/releases/tera-naam.webp';
 import MahakaalImage from '../../assets/images/releases/mahakaal.webp';
 
 export const FEATUREDRELEASES = [
@@ -9,47 +8,20 @@ export const FEATUREDRELEASES = [
     title: 'Shiv Tandav',
     artist: 'Snehi Music',
     image: ShivTandavImage,
+    audio: '/src/assets/music-list/shiva.mp3',
   },
   {
     id: 2,
     title: 'Hanuman Chalisa',
     artist: 'Snehi Music',
     image: HanumanChalisaImage,
+    audio: '/src/assets/music-list/hanuman/Shree Hanuman Chalisha.mp3',
   },
   {
     id: 3,
-    title: 'Tera Naam',
-    artist: 'Snehi Music',
-    image: TeraNaamImage,
-  },
-  {
-    id: 4,
-    title: 'Mahakaal',
+    title: 'Jay Jannai Balwanta',
     artist: 'Snehi Music',
     image: MahakaalImage,
-  },
-  {
-    id: 5,
-    title: 'Tera Naam',
-    artist: 'Snehi Music',
-    image: TeraNaamImage,
-  },
-  {
-    id: 6,
-    title: 'Mahakaal',
-    artist: 'Snehi Music',
-    image: MahakaalImage,
-  },
-  {
-    id: 7,
-    title: 'Tera Naam',
-    artist: 'Snehi Music',
-    image: TeraNaamImage,
-  },
-  {
-    id: 8,
-    title: 'Mahakaal',
-    artist: 'Snehi Music',
-    image: MahakaalImage,
+    audio: '/src/assets/music-list/hanuman/Jay Jannai Balwanta.mp3',
   },
 ];
