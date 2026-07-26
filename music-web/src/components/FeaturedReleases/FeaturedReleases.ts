@@ -1,4 +1,4 @@
-import ShivTandavImage from '../../assets/images/releases/shiv-tandav.webp';
+import ShivTandavImage from '../../assets/albums/mahadev.png';
 import HanumanChalisaImage from '../../assets/images/releases/hanuman-chalisa.webp';
 import TeraNaamImage from '../../assets/images/releases/tera-naam.webp';
 import MahakaalImage from '../../assets/images/releases/mahakaal.webp';
